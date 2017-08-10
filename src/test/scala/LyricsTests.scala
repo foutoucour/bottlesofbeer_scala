@@ -71,8 +71,7 @@ class LyricsTests extends FunSuite with BeforeAndAfter {
     * The song is stored in song.txt file, at the root level of tests
     */
   test("All the song") {
-    val path = Paths.get(System.getProperty("user.dir"), "..", "..","src", "test", "song.txt")
-    val lines = Source.fromFile(path.toString).getLines.mkString("\n")
+    val lines = Source.fromResource("song.txt").getLines.mkString("\n")
     val lyrics = new Lyrics(99)
     assertResult(lines) { lyrics.get }
   }
